@@ -105,6 +105,7 @@ export const NavItem = styled.div`
     border-radius: 20px;
     box-sizing: border-box;
     padding: 8px 10px;
+    position: relative;
 
     >input {
       border-width: 0;
@@ -116,6 +117,26 @@ export const NavItem = styled.div`
       background-color: transparent;
       font-size: 16px;
       color: #000000;
+    }
+    .search {
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      text-align: center;
+      line-height: 30px;
+      display: inline-block;
+      position: absolute;
+      top: 4px;
+      right: 6px;
+    }
+  }
+  &.input-active {
+    width: 300px;
+    transition-timing-function: ease-in-out;
+    transition-duration: .5s;
+
+    .search {
+      background-color: #d0d0d0;
     }
   }
   
