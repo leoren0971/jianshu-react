@@ -7,7 +7,7 @@ export const HeaderWrapper = styled.header`
   border-bottom: 1px solid #f0f0f0;
 `
 export const HeaderContent = styled.div`
-  min-width: 768px;
+  min-width: 960px;
   max-width: 1440px;
   height: 56px;
   margin: 0 auto;
@@ -106,6 +106,9 @@ export const NavItem = styled.div`
     box-sizing: border-box;
     padding: 8px 10px;
     position: relative;
+    transform-origin: 0 50% 0;
+    transition-timing-function: ease-in-out;
+    transition-duration: .5s;
 
     >input {
       border-width: 0;
@@ -128,15 +131,22 @@ export const NavItem = styled.div`
       position: absolute;
       top: 4px;
       right: 6px;
+      transition-timing-function: ease-in-out;
+      transition-duration: .5s;
     }
   }
   &.input-active {
     width: 300px;
-    transition-timing-function: ease-in-out;
-    transition-duration: .5s;
 
     .search {
       background-color: #d0d0d0;
+    }
+  }
+  &.input-leave {
+    width: 250px;
+
+    .search {
+      background-color: transparent;
     }
   }
   

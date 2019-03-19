@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { actionCreators } from './store';
 
 import {
   HeaderWrapper,
@@ -11,51 +13,47 @@ import {
   Nav,
   NavItem
 } from './style';
+const Header = (props) => {
+  return (
+    <HeaderWrapper>
+      <HeaderContent>
+        <Logo/>
+        <Nav>
+          <NavItem className="left main">首页</NavItem>
+          <NavItem className="left">下载APP</NavItem>
+          <NavItem className={props.isFoucus ? 'left input input-active': 'left input input-leave'}>
+            <input
+              onFocus={props.handleInputFocus}
+              onBlur={props.handleInputBlur}
+              placeholder="搜索"
+            />
+            <span className="search"><i className="iconfont">&#xe73c;</i></span>
+          </NavItem>
+        </Nav>
+        <Write><i className="iconfont">&#xe670;</i>写文章</Write>
+        <SignUp>注册</SignUp>
+        <SignIn>登录</SignIn>
+        <Aa><i className="iconfont">&#xe636;</i></Aa>
+      </HeaderContent>
+    </HeaderWrapper>
+  )
+}
 
-class Header extends Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      isFoucus: false
-    }
-    this.handleInputFocus = this.handleInputFocus.bind(this);
-    this.handleInputBlur = this.handleInputBlur.bind(this);
-  }
-  render () {
-    return (
-      <HeaderWrapper>
-        <HeaderContent>
-          <Logo/>
-          <Nav>
-            <NavItem className="left main">首页</NavItem>
-            <NavItem className="left">下载APP</NavItem>
-            <NavItem className={this.state.isFoucus ? 'left input input-active': 'left input'}>
-              <input
-                onFocus={this.handleInputFocus}
-                onBlur={this.handleInputBlur}
-              /><span className="search">8</span>
-            </NavItem>
-          </Nav>
-          <Write>写文章</Write>
-          <SignUp>注册</SignUp>
-          <SignIn>登录</SignIn>
-          <Aa>Aa</Aa>
-        </HeaderContent>
-      </HeaderWrapper>
-    )
-  }
-
-  handleInputFocus () {
-    this.setState(() => ({
-      isFoucus: true
-    }))
-  }
-
-  handleInputBlur () {
-    this.setState(() => ({
-      isFoucus: false
-    }))
+const mapStateToProps = (state) => {
+  return {
+    isFoucus: state.get('header').get('isFoucus')
   }
 }
 
-export default Header;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleInputFocus () {
+      dispatch(actionCreators.searchFocus());
+    },
+    handleInputBlur () {
+      dispatch(actionCreators.searchBlur());
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
