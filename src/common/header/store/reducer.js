@@ -2,7 +2,8 @@ import * as actionTypes from './constants';
 import { fromJS } from 'immutable';
 
 const defaultState = fromJS({
-  isFoucus: false
+  isFoucus: false,
+  list: []
 });
 
 export default (state = defaultState, action) => {
@@ -12,6 +13,9 @@ export default (state = defaultState, action) => {
   }
   if (action.type === actionTypes.SEARCH_BLUR) {
     return state.set('isFoucus', false);
+  }
+  if (action.type === actionTypes.REFRESH_HOT_SEARCH) {
+    return state.set('isFoucus', true);
   }
   return state;
 }

@@ -28,7 +28,7 @@ export const Write = styled.a`
   height: 40px;
   width: 100px;
   border-radius: 20px;
-  background-color: #ea6f5a;
+  background-color: rgba(236,97,73,.7);
   font-size: 15px;
   line-height: 24px;
   margin: 8px 15px 0;
@@ -36,6 +36,10 @@ export const Write = styled.a`
   color: #ffffff;
   padding: 6px 12px;
   box-sizing: border-box;
+  
+  &.write:hover {
+    background-color: rgba(236,97,73, 1);
+  }
 `
 export const SignUp = styled.a`
   float: right;
@@ -47,10 +51,14 @@ export const SignUp = styled.a`
   line-height: 24px;
   margin: 9px 5px 0 15px;
   text-align: center;
-  color: #ea6f5a;
-  border: 1px solid #ea6f5a;
+  color: rgba(236,97,73,.7);
+  border: 1px solid rgba(236,97,73,.7);
   padding: 6px 12px;
   box-sizing: border-box;
+
+  &.signup:hover {
+    background-color: rgba(236,97,73,.05);
+  }
 `
 export const SignIn = styled.a`
   float: right;
@@ -95,20 +103,18 @@ export const NavItem = styled.div`
     float: right;
   }
   &.main {
-    color: #ea6f5a;
+    color: rgba(236,97,73,.7);
   }
   &.input {
     height: 38px;
-    width: 250px;
     background-color: #ededed;
     margin-top: 9px; 
     border-radius: 20px;
     box-sizing: border-box;
-    padding: 8px 10px;
+    padding: 0 30px 0 20px;
     position: relative;
     transform-origin: 0 50% 0;
-    transition-timing-function: ease-in-out;
-    transition-duration: .5s;
+    position: relative;
 
     >input {
       border-width: 0;
@@ -120,6 +126,7 @@ export const NavItem = styled.div`
       background-color: transparent;
       font-size: 16px;
       color: #000000;
+      transition-duration: .5s;
     }
     .search {
       width: 30px;
@@ -131,19 +138,23 @@ export const NavItem = styled.div`
       position: absolute;
       top: 4px;
       right: 6px;
-      transition-timing-function: ease-in-out;
       transition-duration: .5s;
+      transition-timing-function: ease-in-out;
     }
   }
   &.input-active {
-    width: 300px;
+    >input {
+      width: 300px;
+    }
 
     .search {
       background-color: #d0d0d0;
     }
   }
   &.input-leave {
-    width: 250px;
+    >input {
+      width: 200px;
+    }
 
     .search {
       background-color: transparent;
@@ -151,3 +162,42 @@ export const NavItem = styled.div`
   }
   
 `
+
+export const SearchInfo = styled.div`
+  width: 240px;
+  padding: 20px 10px 10px;
+  background-color: #ffffff;
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+  position: absolute;
+  left: 0;
+  top: 48px;
+  box-sizing: content-box;
+`;
+
+export const SearchInfoTitle = styled.div`
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696;
+`;
+
+export const SearchInfoSwitch = styled.span`
+  float: right;
+  font-size: 13px;
+`;
+
+export const SearchInfoList = styled.div`
+  overflow: hidden;
+`;
+
+export const SearchInfoItem = styled.a`
+  padding: 2px 6px;
+  font-size: 12px;
+  color: #787878;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin: 10px 10px 0 0;
+  display: inline-block;
+`
+
