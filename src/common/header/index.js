@@ -21,26 +21,21 @@ import {
 class Header extends Component {
 
   getSearchInfoBox = (props) => {
-    if (props.isFoucus) {
-      return (
-        <SearchInfo>
-          <SearchInfoTitle>
-            热门搜索
-            <SearchInfoSwitch><i className="iconfont">&#xe73c;</i>换一批</SearchInfoSwitch>
-          </SearchInfoTitle>
-          <SearchInfoList className="search-info-item-wrap">
-            <SearchInfoItem>666</SearchInfoItem>
-            <SearchInfoItem>666</SearchInfoItem>
-            <SearchInfoItem>666</SearchInfoItem>
-            <SearchInfoItem>666</SearchInfoItem>
-            <SearchInfoItem>666</SearchInfoItem>
-            <SearchInfoItem>666</SearchInfoItem>
-          </SearchInfoList>
-        </SearchInfo>
-      )
-    } else {
-      return null;
-    }
+    return (
+      <SearchInfo className={!props.isFoucus ? 'hidden' : 'visable'}>
+        <SearchInfoTitle>
+          热门搜索
+          <SearchInfoSwitch
+            onClick={props.handleChangeHotSearchList}
+          ><i className="iconfont">&#xe73c;</i>换一批</SearchInfoSwitch>
+        </SearchInfoTitle>
+        <SearchInfoList className="search-info-item-wrap">
+          {
+            props.showList.map(item => <SearchInfoItem key={item}>{item}</SearchInfoItem>)
+          }
+        </SearchInfoList>
+      </SearchInfo>
+    )
   }
 
   render() {
@@ -73,7 +68,8 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    isFoucus: state.getIn(['header', 'isFoucus'])
+    isFoucus: state.getIn(['header', 'isFoucus']),
+    showList: state.getIn(['header', 'showList'])
   }
 }
 
@@ -86,8 +82,8 @@ const mapDispatchToProps = (dispatch) => {
     handleInputBlur () {
       dispatch(actionCreators.searchBlur());
     },
-    handleRefreshHotSearch () {
-      dispatch(actionCreators.refreshHotsearch());
+    handleChangeHotSearchList () {
+      dispatch(actionCreators.changeList());
     }
   }
 }

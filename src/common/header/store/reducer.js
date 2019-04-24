@@ -3,7 +3,8 @@ import { fromJS } from 'immutable';
 
 const defaultState = fromJS({
   isFoucus: false,
-  list: []
+  list: [],
+  showList: []
 });
 
 export default (state = defaultState, action) => {
@@ -15,7 +16,10 @@ export default (state = defaultState, action) => {
     return state.set('isFoucus', false);
   }
   if (action.type === actionTypes.REFRESH_HOT_SEARCH) {
-    return state.set('isFoucus', true);
+    return state.set('list', action.hotList);
+  }
+  if (action.type === actionTypes.CHANGE_HOT_SEARCH) {
+    return state.set('showList', action.showList);
   }
   return state;
 }

@@ -173,6 +173,15 @@ export const SearchInfo = styled.div`
   left: 0;
   top: 48px;
   box-sizing: content-box;
+  &.hidden {
+    visibility: hidden;
+  }
+  &.visable {
+    visibility: visible;
+  }
+  &:hover {
+    visibility: visible !important;
+  }
 `;
 
 export const SearchInfoTitle = styled.div`
@@ -185,6 +194,7 @@ export const SearchInfoTitle = styled.div`
 export const SearchInfoSwitch = styled.span`
   float: right;
   font-size: 13px;
+  cursor: pointer;
 `;
 
 export const SearchInfoList = styled.div`
