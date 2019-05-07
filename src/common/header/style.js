@@ -172,6 +172,7 @@ export const SearchInfo = styled.div`
   position: absolute;
   left: 0;
   top: 48px;
+  z-index: 2019;
   box-sizing: content-box;
   &.hidden {
     visibility: hidden;

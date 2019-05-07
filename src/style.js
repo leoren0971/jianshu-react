@@ -46,7 +46,9 @@ export const GlobalStyle = createGlobalStyle`
   }
   a {
     cursor: pointer;
-    
+  }
+  img {
+    border: 0;
   }
 
   @font-face {font-family: "iconfont";

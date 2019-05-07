@@ -41,13 +41,10 @@ export const changeList = () => {
     let list = getState().getIn(['header', 'list']);
     let showList = getState().getIn(['header', 'showList']);
     let action;
-    console.log(list.length)
-    console.log(showList)
     if (showList.length === 0 || showList.size === 0) {
       action = updateShowSearchHotList(list.slice(0, 20));
     } else {
       let lastIndex = list.findIndex(value => value === showList[showList.length - 1]);
-      console.log(lastIndex)
       if (lastIndex >= list.length - 1) {
         action = updateShowSearchHotList(list.slice(0, 20));
       } else {
