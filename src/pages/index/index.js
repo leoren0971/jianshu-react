@@ -10,7 +10,9 @@ import {
   BannerItem,
   BannerControl,
   BannerStepWrapper,
-  BannerStepItem
+  BannerStepItem,
+  ArticleWrapper,
+  ArticleItem
 } from './style';
 
 class Index extends Component {
@@ -101,7 +103,13 @@ class Index extends Component {
             </BannerInner>
           </IndexBanner>
         </IndexWrapperLeft>
-        <IndexWrapperRight></IndexWrapperRight>
+        <IndexWrapperRight>
+          <ArticleWrapper>
+            <ArticleItem>
+              
+            </ArticleItem>
+          </ArticleWrapper>
+        </IndexWrapperRight>
       </IndexWrapper>
     )
   }

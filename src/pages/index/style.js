@@ -135,3 +135,12 @@ export const BannerStepItem = styled.div`
     background-color: #ffffff;
   }
 `;
+
+export const ArticleWrapper = styled.div`
+  margin-top: 20px;
+`
+export const ArticleItem = styled.div`
+  border-bottom: 1px solid #f0f0f0;
+  padding: 15px 2px 20px 0;
+  margin: 0 0 15px;
+`
