@@ -12,7 +12,9 @@ import {
   BannerStepWrapper,
   BannerStepItem,
   ArticleWrapper,
-  ArticleItem
+  ArticleItem,
+  ArticleLeftWrapper,
+  ArticleRightWrapper
 } from './style';
 
 class Index extends Component {
@@ -102,13 +104,25 @@ class Index extends Component {
               </BannerStepWrapper>
             </BannerInner>
           </IndexBanner>
-        </IndexWrapperLeft>
-        <IndexWrapperRight>
           <ArticleWrapper>
             <ArticleItem>
-              
+              <ArticleLeftWrapper>
+                <a>655657yhtytyytyty7575665657hfyfyhfgffffyfy</a>
+                <p className="abstract">y感动的点点滴滴的哈哈哈哈哈哈哈的哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                <p className="hot-box">
+                  <sapn className="hot">2.7</sapn>
+                  <span className="name">meizhupeiqi</span>
+                  <span className="reword">4</span>
+                  <span className="heart">21</span>
+                </p>
+              </ArticleLeftWrapper>
+              <ArticleRightWrapper>
+                <img src={this.state.bannerList[0]} />
+              </ArticleRightWrapper>
             </ArticleItem>
           </ArticleWrapper>
+        </IndexWrapperLeft>
+        <IndexWrapperRight>
         </IndexWrapperRight>
       </IndexWrapper>
     )

@@ -29,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     line-height: 1;
   }
-  ol, ul {
+  ol, ul, li {
     list-style: none;
   }
   blockquote, q {
@@ -49,6 +49,9 @@ export const GlobalStyle = createGlobalStyle`
   }
   img {
     border: 0;
+  }
+  a, body {
+    color: #333;
   }
 
   @font-face {font-family: "iconfont";
