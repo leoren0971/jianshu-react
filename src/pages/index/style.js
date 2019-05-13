@@ -4,13 +4,18 @@ export const IndexWrapper = styled.div`
   width: 960px;
   margin: 0 auto;
   padding: 30px 15px 0;
+  position: relative;
 `;
 export const IndexWrapperLeft = styled.div`
   width: 66%;
 `;
 export const IndexWrapperRight = styled.div`
   width: 34%;
-`;
+  padding: 27px 0 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+`
 export const IndexBanner = styled.div`
   margin-bottom: 35px;
   border-radius: 6px;
@@ -20,6 +25,12 @@ export const BannerInner = styled.div`
   width: 100%;
   overflow: hidden;
   position: relative;
+
+  &:hover {
+    .show-col {
+      display: block;
+    }
+  }
 `;
 export const BannerItem = styled.div`
   position: relative;
@@ -102,6 +113,8 @@ export const BannerControl = styled.div`
   top: 40%;
   line-height: 50px;
   text-align: center;
+  display: none;
+  color: #ffffff;
 
   &.left-c {
     left: 0;
@@ -178,6 +191,43 @@ export const ArticleLeftWrapper = styled.div`
     }
   }
 `
+export const ArticleTitle = styled.a.attrs(({ href }) => ({
+  href
+}))`
+  margin: -7px 0 4px;
+  display: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+`
+export const ArticleAbstract = styled.p`
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 24px;
+  color: #999;
+`
+export const ArticleMeta = styled.div`
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 400;
+`
+export const ArticleMetaJsd = styled.span`
+  color: #ea6f5a;
+  margin-right: 10px;
+`
+export const ArticleMetaNick = styled.span`
+  color: #b4b4b4;
+  margin-right: 10px;
+`
+export const ArticleMetaComment = styled.span`
+  color: #b4b4b4;
+  margin-right: 10px;
+`
+export const ArticleMetaLike = styled.span`
+  color: #b4b4b4;
+  margin-right: 10px;
+`
+
 export const ArticleRightWrapper = styled.a`
   width: 150px;
   height: 100px;
@@ -190,4 +240,18 @@ export const ArticleRightWrapper = styled.a`
     width: 100%;
     height: 100%;
   }
+`
+export const BoardWrapper = styled.div`
+  width: 100%;
+`
+export const BoardItem = styled.a`
+  display: block;
+  height: 50px;
+  text-align: center;
+  padding: 3px 0;
+`
+export const BoardItemImg = styled.img.attrs(({ src }) => ({
+  src
+}))`
+  height: 100%;
 `

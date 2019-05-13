@@ -13,9 +13,23 @@ import {
   BannerStepItem,
   ArticleWrapper,
   ArticleItem,
+  ArticleTitle,
+  ArticleAbstract,
   ArticleLeftWrapper,
-  ArticleRightWrapper
+  ArticleMeta,
+  ArticleMetaJsd,
+  ArticleMetaNick,
+  ArticleMetaComment,
+  ArticleMetaLike,
+  ArticleRightWrapper,
+  BoardWrapper,
+  BoardItem,
+  BoardItemImg
 } from './style';
+import boardItemImg4 from './../../statics/images/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png'
+import boardItemImg3 from './../../statics/images/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png'
+import boardItemImg1 from './../../statics/images/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png'
+import boardItemImg2 from './../../statics/images/banner-s-club-aa8bdf19f8cf729a759da42e4a96f366.png'
 
 class Index extends Component {
   constructor(props) {
@@ -90,6 +104,29 @@ class Index extends Component {
       })
     )
   }
+  renderArticleItem() {
+    return (
+      '123456789'.split('').map((item, index) => {
+        return (
+          <ArticleItem>
+            <ArticleLeftWrapper>
+              <ArticleTitle>业障重的人，为什么口味都比较重？</ArticleTitle>
+              <ArticleAbstract>人很多时候，会受到业障牵引，而做出错误的判断。比如说，有些明星，喜欢整容，把下巴整的尖尖的。大家都觉得这是美的。按照药师法门讲，下巴是晚年的粮仓</ArticleAbstract>
+              <ArticleMeta>
+                <ArticleMetaJsd><i className="iconfont">&#xe7b0;</i>3.6</ArticleMetaJsd>
+                <ArticleMetaNick>呜哈呜哈</ArticleMetaNick>
+                <ArticleMetaComment><i className="iconfont">&#xe6e7;</i>5</ArticleMetaComment>
+                <ArticleMetaLike><i className="iconfont">&#xe849;</i>10</ArticleMetaLike>
+              </ArticleMeta>
+            </ArticleLeftWrapper>
+            <ArticleRightWrapper>
+              <img src={this.state.bannerList[0]} />
+            </ArticleRightWrapper>
+          </ArticleItem>
+        )
+      })
+    )
+  }
   render() {
     return (
       <IndexWrapper>
@@ -97,32 +134,32 @@ class Index extends Component {
           <IndexBanner>
             <BannerInner>
               {this.renderBannerItem()}
-              <BannerControl onClick={this.handleClickLeft} className="left-c"><i className="iconfont">&#xe60a;</i></BannerControl>
-              <BannerControl onClick={this.handleClickRight} className="right-c"><i className="iconfont">&#xe613;</i></BannerControl>
+              <BannerControl onClick={this.handleClickLeft} className="left-c show-col"><i className="iconfont">&#xe60a;</i></BannerControl>
+              <BannerControl onClick={this.handleClickRight} className="right-c show-col"><i className="iconfont">&#xe613;</i></BannerControl>
               <BannerStepWrapper>
                 {this.renderBannerStepItem()}
               </BannerStepWrapper>
             </BannerInner>
           </IndexBanner>
           <ArticleWrapper>
-            <ArticleItem>
-              <ArticleLeftWrapper>
-                <a>655657yhtytyytyty7575665657hfyfyhfgffffyfy</a>
-                <p className="abstract">y感动的点点滴滴的哈哈哈哈哈哈哈的哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
-                <p className="hot-box">
-                  <sapn className="hot">2.7</sapn>
-                  <span className="name">meizhupeiqi</span>
-                  <span className="reword">4</span>
-                  <span className="heart">21</span>
-                </p>
-              </ArticleLeftWrapper>
-              <ArticleRightWrapper>
-                <img src={this.state.bannerList[0]} />
-              </ArticleRightWrapper>
-            </ArticleItem>
+            {this.renderArticleItem()}
           </ArticleWrapper>
         </IndexWrapperLeft>
         <IndexWrapperRight>
+          <BoardWrapper>
+            <BoardItem>
+              <BoardItemImg src={boardItemImg1}></BoardItemImg>
+            </BoardItem>
+            <BoardItem>
+              <BoardItemImg src={boardItemImg2}></BoardItemImg>
+            </BoardItem>
+            <BoardItem>
+              <BoardItemImg src={boardItemImg3}></BoardItemImg>
+            </BoardItem>
+            <BoardItem>
+              <BoardItemImg src={boardItemImg4}></BoardItemImg>
+            </BoardItem>
+          </BoardWrapper>
         </IndexWrapperRight>
       </IndexWrapper>
     )

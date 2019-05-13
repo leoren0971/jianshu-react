@@ -44,8 +44,8 @@ class Header extends Component {
         <HeaderContent>
           <Logo/>
           <Nav>
-            <NavItem className="left main">首页</NavItem>
-            <NavItem className="left">下载APP</NavItem>
+            <NavItem className="left main"><i className="iconfont">&#xe786;</i>首页</NavItem>
+            <NavItem className="left"><i className="iconfont">&#xe63d;</i>下载APP</NavItem>
             <NavItem className={this.props.isFoucus ? 'left input input-active': 'left input input-leave'}>
               <input
                 onFocus={this.props.handleInputFocus}
@@ -56,7 +56,7 @@ class Header extends Component {
               {this.getSearchInfoBox(this.props)}
             </NavItem>
           </Nav>
-          <Write className="write"><i className="iconfont">&#xe670;</i>写文章</Write>
+          <Write className="write"><i className="iconfont">&#xe60e;</i>写文章</Write>
           <SignUp className="signup">注册</SignUp>
           <SignIn>登录</SignIn>
           <Aa><i className="iconfont">&#xe636;</i></Aa>
